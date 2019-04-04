@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS in JavaScripto</title>
+</head>
+<body>
+
+  <div class="container" id="app" />
+  
+  <script src="styleheet.js"></script>
+  <script>
+    CreateElement('h1', {
+      attrs: {
+        class: 'title',
+      },
+      styles: `
+        color: tomato;
+        font-size: 40px;
+      `,
+    }, 'CSS in JavaScripto');
+
+    CreateElement('h4', {
+      attrs: {
+        class: 'title',
+      },
+      styles: `
+        color: cyan;
+        font-size: 40px;
+      `,
+    }, 'CSS in JavaScripto 2');
+  </script>
+</body>
+</html>
