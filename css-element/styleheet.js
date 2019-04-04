@@ -20,17 +20,27 @@ function getRandomString() {
   );
 }
 
-function CreateElement(name, { attrs, styles }, text = 'Hello World') {
+function CreateElement(name, { attrs, styles }, children) {
   const element = document.createElement(name);
   const classNameWithHash = `${attrs.class}-${getRandomString()}`;
   StyleSheet.init();
 
   element.classList.add(classNameWithHash);
   StyleSheet.create(classNameWithHash, styles);
-  element.innerHTML = text;
+
+  if (typeof children === 'string') {
+    element.innerHTML = children;
+  } else {
+    if (Array.isArray(children)) {
+      children.forEach(child => element.appendChild(child));
+    } else {
+      element.appendChild(children);
+    }
+  }
   
   document
     .getElementById('app')
     .appendChild(element);
+  return element;
 }
 
